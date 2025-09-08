@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Cine JS: Filmes em Cartaz</h1>
+    <label for="titulo">Título do Filme: </label>
+    <input type="text" name="titulo" id="titulo" required> <br>
+    <label for="duracao">Duração (min): </label>
+    <input type="number" name="duracao" id="duracao" required> <br>
+    <button id="botao">Converter em Horas e Minutos</button>
+    <h3 id="nome"></h3>
+    <h4 id="tempo"></h4>
+
+    <script>
+
+        botao.addEventListener("click", () => {
+            let titulo = document.querySelector("#titulo").value
+            let duracao = document.querySelector("#duracao").value
+
+            let nome = document.querySelector("#nome")
+            let tempo = document.querySelector("#tempo")
+
+            let botao = document.querySelector("#botao")
+
+            let hora = Math.floor(duracao / 60)
+            let minutos = duracao % 60
+
+            nome.textContent = titulo
+            tempo.textContent = `${hora} hora(s) e ${minutos} minutos(s)`
+
+        })
+
+    </script>
+
+</body>
+</html>

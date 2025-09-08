@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Revenda de Veículos JS</h1>
+
+    <form>
+
+        <p> Veículo: 
+            <input type="text" id="veiculo" required>
+        </p>
+
+        <p> Preço R$: 
+            <input type="number" id="preco" required>
+        </p>
+
+        <input type="submit" value="Ver Promoção">
+
+    </form>
+
+    <h2 id="nome"></h2>
+    <h2 id="valor"></h2>
+    <h2 id="parcela"></h2>
+
+    <script>
+
+        let frm = document.querySelector("form")
+        let nome = document.querySelector("#nome")
+        let valor = document.querySelector("#valor")
+        let parcela = document.querySelector("#parcela")
+
+        frm.addEventListener('submit' , (e) => {
+
+            let veiculo = frm.veiculo.value
+            let preco = Number(frm.preco.value)
+
+            let entrada = (preco / 2).toFixed(2)
+            let parcelado = (entrada / 12).toFixed(2)
+
+            nome.textContent = `Promoção: ${veiculo}`
+            valor.textContent = `Entrada de R$ ${entrada}`
+            parcela.textContent = `+12x de R${parcelado}`
+
+            e.preventDefault()
+
+        })
+
+    </script>
+
+</body>
+</html>
