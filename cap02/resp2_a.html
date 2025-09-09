@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Farmácia JS</h1>
+
+    <form>
+
+        <p> Medicamento: 
+            <input type="text" id="medicamento" required>
+        </p>
+
+        <p> Preço R$: 
+            <input type="number" id="preco" min="0" step="0.01" required>
+        </p>
+
+        <input type="submit" id="botao">
+
+    </form>
+
+    <h3 id="subtitulo"></h3>
+    <h3 id="total"></h3>
+
+    <script>
+
+        let frm = document.querySelector("form")
+        let subtitulo = document.querySelector("#subtitulo")
+        let total = document.querySelector("#total")
+
+        frm.addEventListener("submit", (e) => {
+
+            let medicamento = frm.medicamento.value
+            let preco = frm.preco.value
+
+            let valorTotal = (Math.floor(preco * 2)).toFixed(2)
+
+            subtitulo.textContent = `Promoção de ${medicamento}`
+            total.textContent = `Leve 2 por apenas R$: ${valorTotal}`
+
+            e.preventDefault()
+        })
+
+    </script>
+    
+</body>
+</html>

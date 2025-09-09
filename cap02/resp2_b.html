@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Lan House JS</h1>
+
+    <form>
+
+        <p> Valor por 15min de Uso R$: 
+            <input type="number" id="valor" min="0" step="0.01" required>
+        </p>
+
+        <p> Tempo de Uso do Cliente: 
+            <input type="number" id="tempo" min="0" required>
+        </p>
+
+        <input type="submit" value="Calcular Valor a Pagar">
+
+    </form>
+
+    <h2></h2>
+
+    <script>
+
+        let frm = document.querySelector("form")
+        let mostrarTotal = document.querySelector("h2")
+
+        frm.addEventListener("submit", (e) => {
+
+            let valor = frm.valor.value
+            let tempo = frm.tempo.value
+
+            let total = ((Math.ceil(tempo / 15)) * valor).toFixed(2)
+
+            mostrarTotal.textContent = `Valor a Pagar R$: ${total}`
+
+            e.preventDefault()
+        })
+
+    </script>
+    
+</body>
+</html>

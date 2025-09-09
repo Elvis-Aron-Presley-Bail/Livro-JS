@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Supermercado JS</h1>
+
+    <form>
+
+        <p> Produto: 
+            <input type="text" id="produto" required>
+        </p>
+
+        <p> Preço R$: 
+            <input type="number" id="preco" min="0" step="0.01" required>
+        </p>
+
+        <input type="submit" value="Ver Promoção">
+
+    </form>
+
+    <h2 id="mostrarPromocao"></h2>
+    <h2 id="mostrarDesconto"></h2>
+
+    <script>
+
+        let frm = document.querySelector("form")
+        let mostrarPromocao = document.querySelector("#mostrarPromocao")
+        let mostrarDesconto = document.querySelector("#mostrarDesconto")
+
+        frm.addEventListener("submit", (e) => {
+
+            let produto = frm.produto.value
+            let preco = frm.preco.value
+
+            let descontoProduto = (preco - (preco / 2)).toFixed(2)
+            let descontoTotal = ((preco * 3) - descontoProduto).toFixed(2)
+
+            mostrarPromocao.textContent = `${produto} - Promoção: Leve 3 por R$: ${descontoTotal}`
+            mostrarDesconto.textContent = `O 3* produto custa apenas R$: ${descontoProduto}`
+
+            e.preventDefault()
+        })
+
+    </script>
+
+</body>
+</html>
