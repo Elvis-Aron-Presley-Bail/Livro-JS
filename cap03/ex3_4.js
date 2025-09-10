@@ -1,0 +1,7 @@
+const prompt = require("prompt-sync")()
+const peso = Number(prompt("Peso da Ração (kg): "))
+const diario = Number(prompt("Consumo Diário (gr): "))
+const duracao = Math.floor((peso * 1000) / diario)
+const sobra = (peso * 1000) - (duracao * diario)
+console.log(`Duração: ${duracao} dias`)
+console.log(`Sobra: ${sobra}gr`)

@@ -1,0 +1,6 @@
+const prompt = require("prompt-sync")()
+const salario = Number(prompt("Informe o salário: "))
+const tempo = Number(prompt("Informe o tempo de empresa: "))
+const quadrienio = Math.floor(tempo / 4)
+const salarioFinal = (salario + (salario * (quadrienio * 0.01))).toFixed(2)
+console.log(`O funcionário trabalha a empresa a ${quadrienio} quadriênio(s). E o salário deve ser de R$: ${salarioFinal}`)
