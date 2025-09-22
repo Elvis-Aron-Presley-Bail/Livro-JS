@@ -6,13 +6,30 @@ const dez = document.querySelector("#dez")
 frm.addEventListener("submit", (e) => {
     e.preventDefault()
 
-    const valor = frm.valor.value
-    let notaCem = 0
-    let notaCinquenta = 0
-    let notaDez = 0
+    const saque = Number(frm.valor.value)
 
-    if(valor > 100) {
-        notaCem = valor / 100
+    if(saque % 10 != 0) {
+        alert("Valor inválido para notas disponíveis (R$ 10,50, 100)")
+        frm.valor.focus()
+        return
+    }
+
+    const notasCem = Math.floor(saque / 100)
+    let resto = saque % 100
+
+    const notasCinquenta = Math.floor(resto / 50)
+    resto = resto % 50
+
+    const notaDez = Math.floor(resto / 10)
+
+    if(notasCem > 0) {
+        cem.textContent = `Notas de R$ 100: ${notasCem}`
+    }
+    if(notasCinquenta > 0) {
+        cinquenta.textContent = `Notas de R$ 50: ${notasCinquenta}`
+    }
+    if(notaDez > 0) {
+        dez.textContent = `Notas de R$ 10: ${notaDez}`
     }
 
 })
