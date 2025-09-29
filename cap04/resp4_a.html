@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Programa Par ou Ímpar</h1>
+
+    <form>
+
+        <p>Número: 
+            <input type="number" id="numero" required>
+        </p>
+
+        <input type="submit" value="Verificar se é Par ou Ímpar">
+
+    </form>
+
+    <h2></h2>
+
+    <script>
+
+        const frm = document.querySelector("form")
+        const res = document.querySelector("h2")
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const numero = frm.numero.value
+
+            if(numero % 2 == 0) {
+                res.textContent = `O número ${numero} é par`
+            } else {
+                res.textContent = `O número ${numero} é ímpar`
+            }
+
+            const ternario = numero % 2 == 0 ? "Par" : "Ímpar"
+
+            console.log(ternario)
+
+        })
+
+    </script>
+    
+</body>
+</html>

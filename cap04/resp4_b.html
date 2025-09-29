@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>Programa Verifica Velocidade</h1>
+
+    <form>
+
+        <p>Velocidade Permitida: 
+            <input type="number" min="0" id="velPermitida" required>
+        </p>
+
+        <p>Velocidade do Condutor: 
+            <input type="number" min="0" id="velCondutor" required>
+        </p>
+
+        <input type="submit" value="Verificar Velocidade">
+
+    </form>
+
+    <h2></h2>
+
+    <script>
+
+        const frm = document.querySelector("form")
+        const res = document.querySelector("h2")
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const velPermitida = frm.velPermitida.value
+            const velCondutor = frm.velCondutor.value
+
+            const leve = velPermitida * 1.20
+
+            console.log(leve)
+
+            let conclusao
+
+            if(velCondutor <= velPermitida) {
+                conclusao = "Sem Multa"
+            } else if(velCondutor <= leve || velCondutor > velPermitida) {
+                conclusao = "Multa Leve"
+            } else if(leve > velCondutor) {
+                conclusao = "Multa Grave"
+            }
+
+            res.textContent = conclusao
+
+        })
+
+    </script>
+
+</body>
+
+</html>
