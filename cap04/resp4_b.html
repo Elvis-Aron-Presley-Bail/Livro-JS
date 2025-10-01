@@ -34,10 +34,10 @@
         frm.addEventListener("submit", (e) => {
             e.preventDefault()
 
-            const velPermitida = frm.velPermitida.value
-            const velCondutor = frm.velCondutor.value
+            const velPermitida = Number(frm.velPermitida.value)
+            const velCondutor = Number(frm.velCondutor.value)
 
-            const leve = velPermitida * 1.20
+            const leve = velPermitida * 1.2
 
             console.log(leve)
 
@@ -45,9 +45,9 @@
 
             if(velCondutor <= velPermitida) {
                 conclusao = "Sem Multa"
-            } else if(velCondutor <= leve || velCondutor > velPermitida) {
+            } else if(velCondutor > velPermitida && velCondutor <= leve) {
                 conclusao = "Multa Leve"
-            } else if(leve > velCondutor) {
+            } else {
                 conclusao = "Multa Grave"
             }
 

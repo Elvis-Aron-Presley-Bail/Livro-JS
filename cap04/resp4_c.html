@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Programa Parquímetro</h1>
+
+    <form>
+
+        <p>Valor R$: 
+            <input type="number" min="1.00" max="3.00" step="0.01" id="valor">
+        </p>
+
+        <input type="submit" value="Confirmar Depósito">
+
+    </form>
+
+    <h2 id="tempo"></h2>
+
+    <script>
+
+        const frm = document.querySelector("form")
+        const infTempo = document.querySelector("#tempo")
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const valor = frm.valor.value
+
+            let tempo
+
+            if(valor == 1.00) {
+                tempo = "30 min"
+            } else if(valor == 1.75) {
+                tempo = "60 min"
+            } else if(valor == 3.00) {
+                tempo = "120 min"
+            } else {
+                tempo = "Valor Inválido"
+            }
+
+            infTempo.textContent = tempo
+
+        })
+
+    </script>
+    
+</body>
+</html>
