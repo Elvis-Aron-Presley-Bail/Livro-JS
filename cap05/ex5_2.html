@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>Programa Números Decrescentes</h1>
+
+    <form>
+
+        <p>Número: 
+            <input type="number" min="1" step="1" id="numero" required>
+        </p>
+
+        <input type="submit" value="Decrescer Até 1">
+
+    </form>
+
+    <h2></h2>
+
+    <script>
+
+        const frm = document.querySelector("form")
+        const res = document.querySelector("h2")
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const numero = Number(frm.numero.value)
+
+            let resposta = ""
+
+            for(let i = 1; i >= numero; i--) {
+                resposta = resposta - numero
+            }
+
+            res.textContent = resposta
+
+        })
+
+    </script>
+
+</body>
+
+</html>

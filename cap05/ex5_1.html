@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>Programa Tabuada</h1>
+
+    <form>
+
+        <p>Número: 
+            <input type="number" min="0" step="1" id="numero">
+        </p>
+
+        <input type="submit" value="Mostrar Tabuada">
+
+    </form>
+
+    <pre id="resultado"></pre>
+
+    <script>
+
+        const frm = document.querySelector("form")
+        const res = document.querySelector("#resultado")
+
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            const numero = Number(frm.numero.value)
+
+            let valor = 0
+
+            for(let i = 1; i < 11; i = i + 1) {
+                valor = valor + numero
+                res.textContent += `${numero} x ${i} = ${valor} \n`
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
