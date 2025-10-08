@@ -32,11 +32,13 @@
 
             const numero = Number(frm.numero.value)
 
-            let resposta = ""
+            let resposta = `Entre ${numero} e 1: `
 
-            for(let i = 1; i >= numero; i--) {
-                resposta = resposta - numero
+            for(let i = numero; i > 1; i--) {
+                resposta = resposta + i + ','
             }
+
+            resposta = resposta + "1."
 
             res.textContent = resposta
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+
+        let numero
+
+        do {
+            numero = Number(prompt("Informe o número: "))
+
+            if(numero == 0 || isNaN(numero)) {
+                alert("Insira um número válido")
+            }
+
+        } while(numero == 0 || isNaN(numero))
+
+        let pares = `Pares entre 1 e ${numero}: `
+
+        for(let i = 2; i <= numero; i = i + 2) {
+            pares = pares + i + ","
+        }
+
+        alert(pares)
+
+    </script>
+
+</body>
+
+</html>
