@@ -8,12 +8,16 @@ frm.addEventListener("submit", (e) => {
     let anos = frm.anos.value
 
     let acumulador = ''
+    let contador = numero
+    let primeiroAno = `1* Ano: ${numero} Chinchilas \n`
 
-    for(let i = 1; i <= anos; i++) {
-        let numChinchila = numero * 3
-        acumulador = acumulador + `${i}* Ano: ${numChinchila} Chinchilas \n`
+    for(let i = 2; i <= anos; i++) {
+
+        contador = contador * 3
+    
+        acumulador = acumulador + `${i}* Ano: ${contador} Chinchilas \n`
     }
 
-    res.textContent = acumulador
+    res.textContent = primeiroAno + acumulador
 
 })
