@@ -4,6 +4,9 @@ const chances = document.querySelector("#chances")
 
 let numeroMisterioso = (Math.random() * 100).toFixed(0)
 
+let dica = document.querySelector("#dica")
+dica.textContent = `É um número entre 1 e 100`
+
 let numeroFalado = []
 let contadorErros = 0
 let contarChances = 6
@@ -17,7 +20,7 @@ frm.addEventListener("submit", (e) => {
         alert("Você já falou este número!")
         return
     }
-
+    
     numeroFalado.push(numero)
 
     contadorErros++
@@ -29,9 +32,13 @@ frm.addEventListener("submit", (e) => {
         location.reload()
     }
 
-    if(numero == numeroMisterioso) {
+    if(numero > numeroMisterioso) {
+        dica.textContent = `É um número menor que ${numero}`
+    } else if(numero == numeroMisterioso) {
         alert(`Parabens! Você acertou ! O número era ${numeroMisterioso}`)
         location.reload()
+    } else {
+        dica.textContent = `É um número maior que ${numero}`
     }
 
     erros.textContent = contadorErros
