@@ -40,6 +40,23 @@ listarTodos.addEventListener("click", () => {
     listaTxt.textContent = lista
 })
 
+simularPromocao.addEventListener('click', () => {
+    const pedido = Number(prompt("Digite a taxa de desconto: "))
+
+    let desconto = carros.map(carro => ({preco : carro.preco - ((carro.preco * pedido) / 100) , modelo : carro.modelo }))
+
+    if(pedido > 100 || pedido < 1) {
+        alert("Desconto deve ser entre 1% e 99%")
+        return
+    }
+
+    let lista = desconto.reduce((acumulador,carro) => 
+    acumulador + carro.modelo + carro.preco + '\n' , '')
+
+    listaTxt.textContent = lista
+
+})
+
 filtrarPreco.addEventListener('click', () => {
     const filtro = prompt("Qual o valor máximo?")
     const filtrado = carros.filter(carro => carro.preco <= filtro)
@@ -47,9 +64,8 @@ filtrarPreco.addEventListener('click', () => {
     acumulador + carro.modelo + carro.preco + '\n', '')
     console.log(lista)
 
-    if(filtrado.length == 0) {
-        alert(`Nenhum carro abaixo de R$ ${filtro}`)
-        listaTxt.textContent = ''
+    if(filtrado.length == 0 || filtrado == null) {
+        alert(`Nenhum carro encontrado`)
         return
     }
 
